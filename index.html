@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Test Java in html
+
+</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
+</head>
+
+<body>
+
+  <!-- <script src="script.js"></script> script assigment 
+   <script type="text/babel">
+   var nameBuilder = function(firstName="John", lastName="Doe") {
+      console.log(firstName + " " + lastName);
+   };
+
+   nameBuilder();
+  </script>  -->
+
+
+  <script type="text/javascript">
+    function setBackground(doc) {
+      myVar = setTimeout(setBackground, 500, doc); // 500 milliseconds delay
+
+      var index = Math.round(Math.random() * 9);
+
+      var ColorValue = "FFFFFF"; // default color - white (index = 0)
+
+      if (index == 1)
+        ColorValue = "FFCCCC"; //peach
+      if (index == 2)
+        ColorValue = "CCAFFF"; //violet
+      if (index == 3)
+        ColorValue = "A6BEFF"; //lt blue
+      if (index == 4)
+        ColorValue = "99FFFF"; //cyan
+      if (index == 5)
+        ColorValue = "D5CCBB"; //tan
+      if (index == 6)
+        ColorValue = "99FF99"; //lt green
+      if (index == 7)
+        ColorValue = "FFFF99"; //lt yellow
+      if (index == 8)
+        ColorValue = "FFCC99"; //lt orange
+      if (index == 9)
+        ColorValue = "CCCCCC"; //lt grey
+
+      doc.getElementsByTagName("body")[0].style.backgroundColor = "#" + ColorValue;
+
+    }
+    function toggleButton() {
+      if (myVar) {
+        clearTimeout(myVar);
+        myVar = null;
+      } else {
+        setBackground(document);
+      }
+    } 
+  </script>
+
+  <body onload="setBackground(document);">
+
+  <button onclick="toggleButton()">Stop it / Start it</button>
+
+
+  <p>Click the button to open a new window and close the window after three seconds (3000 milliseconds)</p>
+
+  <button onclick="openWin()">Extra Party</button>
+
+  <script>
+    function openWin() {
+      var myWindow = window.open("", "myWindow", "width=200, height=100");
+      setBackground(myWindow.document);
+      myWindow.document.write("<p>Party #2</p>");
+
+
+      setTimeout(function () { myWindow.close() }, 3000);
+    }
+
+  </script>
+
+
+</body>
+
+</html>
